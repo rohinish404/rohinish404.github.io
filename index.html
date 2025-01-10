@@ -163,7 +163,21 @@
         .links a {
             font-weight: bold;
         }
+        .tech-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
 
+        .tech-tag {
+            background-color: var(--tag-bg);
+            color: var(--text-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
         @media (max-width: 768px) {
             body {
                 padding: 1rem;
@@ -187,39 +201,84 @@
         <p>Open to roles. Full Stack or AI/ML</p>
     </div>  
     <div class="links">
-        <a href="https://www.linkedin.com/in/rohinish-singh-a0a52522b/">[LinkedIn]</a>
-        <a href="https://github.com/rohinish404">[Github]</a>
+        <a href="https://www.linkedin.com/in/rohinish-singh-a0a52522b/" target="_blank">[LinkedIn]</a>
+        <a href="https://github.com/rohinish404" target="_blank">[Github]</a>
     </div>
+    <h2>[Work]</h2>
+    <ul>
+        <li>
+            <div>
+                <b>InspeqAI<a href="https://www.linkedin.com/company/inspeq-ai" target="_blank">[Link]</a></b>
+                <p>SDE Intern | Remote | December 2023 - June 2024</p>
+                <p> - Collaborated with senior researcher and developers to build LLM evaluation metrics such as coherence, factual consistency, answer relevancy, etc.</p>
+                <p> - Integrated several researched metrics into FastAPI backend services using libraries such as Hugging Face, PyTorch, etc.</p>
+                <p> - Other minor work revolved around researching rag pipelines, rag eval metrics, and building several small backend services.</p>
+            </div>
+        </li>
+        <li>
+            <div>
+                <b>GeeksForGeeks<a href="https://www.geeksforgeeks.org" target="_blank">[Link]</a></b>
+                <p>Technical Content Writer Intern | Remote | September 2023 - February 2024</p>
+                <p> - Researched several machine and deep learning topics as well as got few topics published along with implementations.</p>
+                <p> - Total combined views over 20k worldwide.</p>
+                <p><a href="https://www.geeksforgeeks.org/user/singhrohinish09/contributions/" target="_blank">[All Articles]</a></p>
+                </ul>
+            </div>
+        </li>
+    </ul>
     <h2>[Projects]</h2>
     <ul>
         <li>
             <div>
                 <b>Movie Streaming Website<a href="https://github.com/rohinish404/Letzwatch" target="_blank">[Link]</a></b>
                 <p>A website to watch movies online with the feature to watch together on video call.</p>
+                <div class="tech-tags"></div>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">WebRTC</span>
+                    <span class="tech-tag">Socket.io</span>
+                </div>
             </div>
         </li>
         <li>
             <div>
                 <b>Image Captioning Model <a href="https://github.com/rohinish404/image_captioning" target="_blank">[Link]</a></b>
                 <p>Implementation of Show Attend and Tell Paper in Pytorch.</p>
+                <div class="tech-tags"></div>
+                    <span class="tech-tag">Pytorch</span>
+                </div>
             </div>
         </li>
         <li>
             <div>
                 <b>Recurate <a href="https://github.com/rohinish404/Recurate" target="_blank">[Link]</a></b>
                 <p>Get all your twitter bookmarks in one place and categorise and/or perform search on them using sematic similarity.</p>
+                <div class="tech-tags"></div>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">LanceDB</span>
+                </div>
             </div>
         </li>
         <li>
             <div>
                 <b>Cursor Controller <a href="https://github.com/rohinish404/cursor_controller" target="_blank">[Link]</a></b>
                 <p>Controlling cursor using hands to perfrom actions such scroll and click. Uses mediapipe, cv2 and pyautogui for hand tracking.</p>
+                <div class="tech-tags"></div>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">Mediapipe</span>
+                </div>
             </div>
         </li>
         <li>
             <div>
                 <b>Thumb Detection <a href="https://github.com/rohinish404/thumbs_detection" target="_blank">[Link]</a></b>
                 <p>Finetuned Yolov5 on custom hands dataset (yes my own hands) to detect either the thumb is pointing upwards or downwards. Include livecam detection also.</p>
+                <div class="tech-tags"></div>
+                    <span class="tech-tag">Pytorch</span>
+                </div>
             </div>
         </li>
     </ul>
@@ -229,12 +288,19 @@
             <div>
                 <b>Rscope <a href="https://github.com/rohinish404/rscope" target="_blank">[Link]</a></b>
                 <p>A tool to fast-preview videos, pdfs, images, and txt/code files in iterm2 terminal.</p>
+                <div class="tech-tags"></div>
+                    <span class="tech-tag">Shell</span>
+                </div>
             </div>
         </li>
         <li>
             <div>
                 <b>Rdump <a href="https://github.com/rohinish404/rdump" target="_blank">[Link]</a></b>
                 <p>A chrome extension to dump opened tabs into a text file or load txt file of links to open all.</p>
+                <div class="tech-tags"></div>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
             </div>
         </li>
     </ul>
@@ -242,9 +308,21 @@
     <ul>
         <li>
             <div>Explanable AI <a href="https://explanable.com" target="_blank">[Link]</a></div>
+            <div class="tech-tags"></div>
+                <span class="tech-tag">NextJS</span>
+                <span class="tech-tag">Groq API</span>
+                <span class="tech-tag">MongoDB</span>
+            </div>
+            
         </li>
         <li>
             <div>Talking Recipe Book <a href="https://github.com/rohinish404/Talking_recipe" target="_blank">[Link]</a></div>
+            <div class="tech-tags"></div>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">Pytorch</span>
+                <span class="tech-tag">ElevenLabs</span>
+            </div>
         </li>
     </ul>
     <h3>[Some open source contributions]</h3>
