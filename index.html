@@ -4,194 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohinish - Portfolio</title>
-    <style>
-        :root {
-            --bg-primary: #1a1b26;
-            --bg-secondary: #24283b;
-            --text-primary: #c0caf5;
-            --text-secondary: #7aa2f7;
-            --accent: #bb9af7;
-            --link-hover: #ff9e64;
-        }
-
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Multiple star layers */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .stars::before,
-        .stars::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-repeat: repeat;
-            mix-blend-mode: screen;
-        }
-
-        .stars::before {
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 40px 70px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0,0,0,0));
-            background-size: 200px 200px;
-            opacity: 0.3;
-            animation: twinkle 4s infinite;
-        }
-
-        .stars::after {
-            background-image: 
-                radial-gradient(2px 2px at 100px 150px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 150px 50px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 180px 120px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 200px 20px, #ffffff, rgba(0,0,0,0));
-            background-size: 300px 300px;
-            opacity: 0.3;
-            animation: twinkle 6s infinite reverse;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.5; }
-        }
-
-        /* Content styles */
-        #intro {
-            border-bottom: 2px solid var(--accent);
-            background-color: var(--bg-primary);
-            position: relative;
-            z-index: 1;
-            padding: 1rem;
-            border-radius: 8px;
-        }
-
-        h1, h2, h3 {
-            color: var(--text-secondary);
-            margin-top: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            position: relative;
-            z-index: 1;
-        }
-
-        a:hover {
-            color: var(--link-hover);
-            background-color: var(--bg-secondary);
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        li {
-            background-color: var(--bg-secondary);
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-            transition: transform 0.2s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        li:hover {
-            transform: translateX(10px);
-        }
-
-        li div {
-            margin-bottom: 0.5rem;
-        }
-
-        b {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        p {
-            margin: 0.5rem 0;
-            color: var(--text-primary);
-            opacity: 0.9;
-        }
-
-        .links {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .links a {
-            font-weight: bold;
-        }
-        .tech-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 0.5rem;
-        }
-
-        .tech-tag {
-            background-color: var(--tag-bg);
-            color: var(--text-primary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-        }
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            li {
-                padding: 0.8rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800&f[]=panchang@800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="stars"></div>
@@ -205,14 +19,23 @@
         <a href="https://github.com/rohinish404" target="_blank">[Github]</a>
     </div>
     <h2>Currently working On...</h2>
-    <div>
-        <b>ImageryAI - AI Image Generation Platform<a href="https://github.com/rohinish404/ImageryAI" target="_blank">[Link]</a></b>
-        <p>Platform to download Image gen models and generate images.</p>
-    </div>
-    <div>
-        <b>GithubViz - Visualize Your GitHub Repository<a href="https://githubviz.pages.dev/" target="_blank">[Link]</a></b>
-        <p>GitHubViz helps you explore GitHub repositories in an interactive way. Get insights into code structure, dependencies, and project organization with this intuitive visualization tool.</p>
-    </div>
+    <ul>
+        <li>
+            <div>
+                <b>GithubViz - Visualize Your GitHub Repository<a href="https://githubviz.pages.dev/" target="_blank">[Link]</a></b>
+                <p>GitHubViz helps you explore GitHub repositories in an interactive way. Get insights into code structure, dependencies, and project organization with this intuitive visualization tool.</p>
+                <img src="assets/githubviz.png" alt="GithubViz" class="project-image">
+            </div>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <div>
+                <b>ImageryAI - AI Image Generation Platform<a href="https://github.com/rohinish404/ImageryAI" target="_blank">[Link]</a></b>
+                <p>Platform to download Image gen models and generate images.</p>
+            </div>
+        </li>
+    </ul>
     <h2>[Work]</h2>
     <ul>
         <li>
@@ -241,18 +64,21 @@
             <div>
                 <b>LetzWatch - Movie Streaming Website<a href="https://github.com/rohinish404/Letzwatch" target="_blank">[Link]</a></b>
                 <p>A concept website that lets people watch movies together on a video call.</p>
+                <img src="assets/letzwatch.png" alt="Letzwatch" class="project-image">
                 <div class="tech-tags"></div>
                     <span class="tech-tag">React</span>
                     <span class="tech-tag">FastAPI</span>
                     <span class="tech-tag">WebRTC</span>
                     <span class="tech-tag">Socket.io</span>
                 </div>
+                
             </div>
         </li>
         <li>
             <div>
                 <b>Website Uptime Monitor with Discord Notifications<a href="https://github.com/rohinish404/monitor_uptime" target="_blank">[Link]</a></b>
                 <p>A simple service that monitors website availability and sends notifications through Discord webhooks when a site goes down or recovers.</p>
+                <img src="assets/uptime.png" alt="Uptime" class="project-image">
                 <div class="tech-tags"></div>
                     <span class="tech-tag">FastAPI</span>
                     <span class="tech-tag">Asyncio</span>
@@ -266,6 +92,7 @@
             <div>
                 <b>Image Captioning Model <a href="https://github.com/rohinish404/image_captioning" target="_blank">[Link]</a></b>
                 <p>Implementation of Show Attend and Tell Paper in Pytorch.</p>
+                <img src="assets/image.png" alt="image_cap" class="project-image">
                 <div class="tech-tags"></div>
                     <span class="tech-tag">Pytorch</span>
                 </div>
@@ -275,6 +102,7 @@
             <div>
                 <b>Recurate <a href="https://github.com/rohinish404/Recurate" target="_blank">[Link]</a></b>
                 <p>Get all your twitter bookmarks in one place and categorise and/or perform search on them using sematic similarity.</p>
+                <img src="assets/recurate.png" alt="recurate" class="project-image">
                 <div class="tech-tags"></div>
                     <span class="tech-tag">HTML</span>
                     <span class="tech-tag">JavaScript</span>
@@ -310,6 +138,7 @@
             <div>
                 <b>Rscope <a href="https://github.com/rohinish404/rscope" target="_blank">[Link]</a></b>
                 <p>A tool to fast-preview videos, pdfs, images, and txt/code files in iterm2 terminal.</p>
+                <img src="assets/rscope.png" alt="rscope" class="project-image">
                 <div class="tech-tags"></div>
                     <span class="tech-tag">Shell</span>
                 </div>
@@ -319,6 +148,7 @@
             <div>
                 <b>Rdump <a href="https://github.com/rohinish404/rdump" target="_blank">[Link]</a></b>
                 <p>A chrome extension to dump opened tabs into a text file or load txt file of links to open all.</p>
+                <img src="assets/rdump.png" alt="rdump" class="project-image">
                 <div class="tech-tags"></div>
                     <span class="tech-tag">HTML</span>
                     <span class="tech-tag">JavaScript</span>
@@ -330,6 +160,7 @@
     <ul>
         <li>
             <div>Explanable AI <a href="https://explanable.com" target="_blank">[Link]</a></div>
+            <img src="assets/explanable.png" alt="explanable" class="project-image">
             <div class="tech-tags"></div>
                 <span class="tech-tag">NextJS</span>
                 <span class="tech-tag">Groq API</span>
@@ -339,6 +170,7 @@
         </li>
         <li>
             <div>Talking Recipe Book <a href="https://github.com/rohinish404/Talking_recipe" target="_blank">[Link]</a></div>
+            <img src="assets/talking_recipe.png" alt="talking_recipe" class="project-image">
             <div class="tech-tags"></div>
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">Streamlit</span>
