@@ -12,22 +12,15 @@ function App() {
       <div className="links">
         <a href="https://www.linkedin.com/in/rohinish-singh-a0a52522b/" target="_blank" rel="noopener noreferrer">[LinkedIn]</a>
         <a href="https://github.com/rohinish404" target="_blank" rel="noopener noreferrer">[Github]</a>
+        <a href="https://drive.google.com/file/d/1rJfpSCSPn60jcG2d7MOe6TrbDcJSo_K1/view?usp=sharing" target="_blank" rel="noopener noreferrer">[CV]</a>
       </div>
       <h2>Currently working On...</h2>
       <ul>
         <li>
           <div>
-            <b>GithubViz - Visualize Your GitHub Repository<a href="https://githubviz.pages.dev/" target="_blank" rel="noopener noreferrer">[Link]</a></b>
-            <p>GitHubViz helps you explore GitHub repositories in an interactive way. Get insights into code structure, dependencies, and project organization with this intuitive visualization tool.</p>
+            <b>GhViz - Visualize Your GitHub Repository<a href="https://ghviz.pages.dev/" target="_blank" rel="noopener noreferrer">[Link]</a></b>
+            <p>GhViz helps you explore GitHub repositories in an interactive way. Get insights into code structure, dependencies, and project organization with this intuitive visualization tool.</p>
             <img src="assets/githubviz.png" alt="GithubViz" className="project-image" />
-          </div>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <div>
-            <b>ImageryAI - AI Image Generation Platform<a href="https://github.com/rohinish404/ImageryAI" target="_blank" rel="noopener noreferrer">[Link]</a></b>
-            <p>Platform to download Image gen models and generate images.</p>
           </div>
         </li>
       </ul>
