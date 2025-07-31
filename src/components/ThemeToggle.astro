@@ -28,12 +28,12 @@ const themes = [
 ---
 
 <div class="theme-toggle-wrapper">
-  <details is-="popover" position-="top baseline-left" class="theme-details">
-    <summary is-="button" size-="small" id="theme-summary-button">
+  <details class="theme-details">
+    <summary class="theme-summary-button" id="theme-summary-button">
       [ THEME ]
     </summary>
 
-    <div id="theme-options">
+    <div id="theme-options" class="theme-options">
       {themes.map(theme => (
         <button
           size-="small"
@@ -57,21 +57,12 @@ const themes = [
     z-index: 100;
   }
 
-  /* Mobile-first responsive adjustments */
+  /* Mobile positioning */
   @media (max-width: 768px) {
     .theme-toggle-wrapper {
-      position: fixed;
       top: auto;
       bottom: 1rem;
       right: 1rem;
-      left: auto;
-    }
-    
-    /* Make button smaller on mobile */
-    #theme-summary-button {
-      min-width: 20ch !important;
-      font-size: 0.8rem !important;
-      padding: 0.4rem 0.8rem !important;
     }
   }
 
@@ -81,40 +72,61 @@ const themes = [
       bottom: 0.5rem;
       right: 0.5rem;
     }
-    
-    #theme-summary-button {
-      min-width: 16ch !important;
-      font-size: 0.75rem !important;
-      padding: 0.3rem 0.6rem !important;
-    }
   }
 
-  /* Tablet and larger - keep original positioning */
-  @media (min-width: 769px) {
-    .theme-toggle-wrapper {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      bottom: auto;
-    }
+  /* The details element */
+  .theme-details {
+    position: relative;
   }
 
   /* The button that opens the menu */
-  #theme-summary-button {
+  .theme-summary-button {
     min-width: 28ch;
+    display: flex;
     justify-content: center;
+    align-items: center;
     font-weight: bold;
     background-color: var(--background0);
     color: var(--foreground0);
-    border: none;
-    padding-left: 0;
-    padding-right: 0;
+    border: 2px solid var(--surface1);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
     cursor: pointer;
     transition: all 0.2s ease;
+    list-style: none;
+  }
+
+  .theme-summary-button::-webkit-details-marker {
+    display: none;
+  }
+
+  .theme-summary-button:hover {
+    background-color: var(--background1);
+    border-color: var(--surface2);
+  }
+
+  /* Mobile button adjustments */
+  @media (max-width: 768px) {
+    .theme-summary-button {
+      min-width: 20ch;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .theme-summary-button {
+      min-width: 16ch;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.6rem;
+    }
   }
 
   /* The container for the list of theme buttons */
-  #theme-options {
+  .theme-options {
+    position: absolute;
+    top: calc(100% + 0.5rem); /* Desktop: below button */
+    right: 0;
     display: flex;
     flex-direction: column;
     background-color: var(--background0);
@@ -127,34 +139,37 @@ const themes = [
     padding: 0.5rem;
     gap: 0.25rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
   }
 
-  /* Mobile-specific adjustments */
+  /* Mobile positioning - above button */
   @media (max-width: 768px) {
-    /* Change popover position on mobile */
-    .theme-details {
-      position: relative;
-    }
-    
-    .theme-details[is="popover"] {
-      --popover-position: top baseline-left;
-    }
-    
-    #theme-options {
+    .theme-options {
+      top: auto;
+      bottom: calc(100% + 0.5rem);
       min-width: 20ch;
       max-height: 50vh;
-      right: 0;
-    left: auto;
+      transform: translateY(10px);
     }
   }
 
   @media (max-width: 480px) {
-    #theme-options {
+    .theme-options {
       min-width: 18ch;
       max-height: 40vh;
     }
   }
-  
+
+  /* Show the options when details is open */
+  .theme-details[open] .theme-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
   /* Individual theme buttons inside the menu */
   .theme-option-button {
     justify-content: flex-start !important;
@@ -169,6 +184,7 @@ const themes = [
     overflow: hidden;
     text-overflow: ellipsis;
     transition: all 0.2s ease;
+    cursor: pointer;
   }
 
   .theme-option-button:hover {
@@ -191,22 +207,27 @@ const themes = [
   }
 
   /* Scrollbar styling for the theme options */
-  #theme-options::-webkit-scrollbar {
+  .theme-options::-webkit-scrollbar {
     width: 6px;
   }
 
-  #theme-options::-webkit-scrollbar-track {
+  .theme-options::-webkit-scrollbar-track {
     background: var(--background1);
     border-radius: 3px;
   }
 
-  #theme-options::-webkit-scrollbar-thumb {
+  .theme-options::-webkit-scrollbar-thumb {
     background: var(--surface2);
     border-radius: 3px;
   }
 
-  #theme-options::-webkit-scrollbar-thumb:hover {
+  .theme-options::-webkit-scrollbar-thumb:hover {
     background: var(--surface3);
+  }
+
+  /* Close dropdown when clicking outside */
+  .theme-details[open] {
+    /* This ensures the dropdown closes when clicking outside */
   }
 </style>
 
@@ -243,6 +264,9 @@ const themes = [
   // --- Event Handling ---
   themeButtons.forEach(button => {
     button.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
       const selectedTheme = button.dataset.themeValue;
       if (!selectedTheme) return;
 
@@ -252,9 +276,21 @@ const themes = [
       updateActiveButton(selectedTheme);
       localStorage.setItem('webtui-theme', selectedTheme);
 
-      // Close the popover after selection
+      // Close the dropdown after selection
       detailsEl.removeAttribute('open');
     });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!detailsEl.contains(e.target as Node)) {
+      detailsEl.removeAttribute('open');
+    }
+  });
+
+  // Prevent dropdown from closing when clicking inside
+  detailsEl.addEventListener('click', (e) => {
+    e.stopPropagation();
   });
 
   // --- Initial Load ---
