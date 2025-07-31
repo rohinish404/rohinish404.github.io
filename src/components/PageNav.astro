@@ -1,0 +1,44 @@
+---
+const { pathname } = Astro.url;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/blogs', label: 'Blogs' },
+];
+---
+<nav class="page-nav-container">
+  <div shear-="top">
+    <div class="nav-links">
+      {navLinks.map(link => {
+        const isActive = pathname === link.href || (link.href === '/' && pathname.startsWith('/page/'));
+        return (
+          <a
+            href={link.href}
+            is-="badge"
+            variant-={isActive ? 'blue' : 'background2'}
+            cap-="round"
+          >
+            {isActive ? `> ${link.label}` : link.label}
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</nav>
+
+<style>
+  .page-nav-container {
+    padding: 1.5rem 2ch 0;
+    max-width: 80ch;
+    margin: 0 auto;
+    font-size: 0.9rem;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1ch;
+    padding: 0.5lh 1ch;
+  }
+  .nav-links a {
+    text-decoration: none;
+  }
+</style>

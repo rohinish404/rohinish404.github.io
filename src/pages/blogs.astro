@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+  <main class="blogs-container">
+    <div box-="round" shear-="top">
+        <h1 is-="badge" variant-="blue">Blogs</h1>
+        <div class="content-padded">
+            <p>A collection of my thoughts, tutorials, and project deep-dives. Stay tuned!</p>
+        </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .blogs-container {
+    padding: 2lh 2ch;
+    display: flex;
+    flex-direction: column;
+    gap: 2lh;
+    max-width: 80ch;
+    margin: 1lh auto 4lh auto;
+  }
+
+  .content-padded {
+    padding: 1lh 1ch;
+  }
+
+  p {
+    line-height: var(--line-height);
+  }
+</style>

@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import '@fontsource/jetbrains-mono';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import PageNav from '../components/PageNav.astro';
 ---
 <!doctype html>
 <html lang="en"> 
@@ -20,6 +21,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
   </head>
   <body>
     <ThemeToggle />
+    <PageNav />
     <slot />
   </body>
 </html>
