@@ -17,7 +17,6 @@ permissions:
   id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -29,12 +28,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Your project uses pnpm, so we'll use that.
-      # The official Astro action handles setup, caching, and dependency installation.
-      - name: Setup Astro
-        uses: withastro/action@v2
+      # MODIFIED SECTION: Replaced withastro/action with explicit setup steps
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          package-manager: pnpm@latest # Explicitly use pnpm
+          version: 10 # Use the pnpm version from your package.json
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use the Node.js version your project requires
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+      # END OF MODIFIED SECTION
 
       - name: Build
         run: pnpm build
