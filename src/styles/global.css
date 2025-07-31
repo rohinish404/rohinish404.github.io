@@ -17,6 +17,8 @@
 @import "@webtui/theme-vitesse";
 @import "@webtui/plugin-nf";
 
+
+
 @layer base {
   :root {
     --font-family: "JetBrains Mono", Menlo, Monaco, monospace, "Symbols Nerd Font";

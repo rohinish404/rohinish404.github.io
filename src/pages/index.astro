@@ -1,7 +1,8 @@
+---
 import Layout from '../layouts/Layout.astro';
 
 const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve", "pink", "flamingo", "teal", "sapphire", "lavender"];
-
+---
 <Layout>
   <main class="portfolio-container">
     <div box-="square" class="intro-box">
@@ -22,7 +23,7 @@ const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve"
     </div>
 
     <div box-="round" shear-="top">
-      <h2 is-="badge" variant-="green"> Currently working on...</h2>
+      <h2 is-="badge" variant-="blue"> Currently working on...</h2>
       <div class="content-padded">
         <h3>Gdocs AI - AI docs editor
           <a href=" target="_blank" rel="noopener noreferrer">[Link]</a>
@@ -32,7 +33,7 @@ const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve"
     </div>
 
     <div box-="round" shear-="top">
-      <h2 is-="badge" variant-="blue"> Work Experience</h2>
+      <h2 is-="badge" variant-="blue"> Work Experience</h2>
       <ul marker-="tree open" class="content-padded work-list">
 	  	<li>
           <h3>[Redacted]</h3>
@@ -62,7 +63,7 @@ const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve"
     </div>
 
     <div box-="round" shear-="top">
-        <h2 is-="badge" variant-="peach">Projects</h2>
+        <h2 is-="badge" variant-="blue">Projects</h2>
         <div class="projects-grid">
 			<div box-="square">
 				<div class="content-padded">
@@ -140,21 +141,21 @@ const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve"
     
     <div class="side-projects-grid">
       <div box-="round" shear-="top">
-        <h3 is-="badge" variant-="sky"> Misc Projects</h3>
+        <h3 is-="badge" variant-="blue"> Misc Projects</h3>
         <ul marker-="tree open" class="content-padded">
           <li><a href="https://github.com/rohinish404/rscope" target="_blank"><strong>Rscope:</strong> Fast file previewer for iTerm2.</a></li>
           <li><a href="https://github.com/rohinish404/rdump" target="_blank"><strong>Rdump:</strong> Chrome extension to save/load tabs.</a></li>
         </ul>
       </div>
       <div box-="round" shear-="top">
-        <h3 is-="badge" variant-="teal"> Hackathons</h3>
+        <h3 is-="badge" variant-="blue"> Hackathons</h3>
         <ul marker-="tree open" class="content-padded">
           <li><a href="https://explanable.com" target="_blank"><strong>Explanable AI:</strong> Explain complex topics simply.</a></li>
           <li><a href="https://github.com/rohinish404/Talking_recipe" target="_blank"><strong>Talking Recipe Book:</strong> AI-powered audio recipes.</a></li>
         </ul>
       </div>
       <div box-="round" shear-="top">
-        <h3 is-="badge" variant-="maroon"> OSS Contributions</h3>
+        <h3 is-="badge" variant-="blue"> OSS Contributions</h3>
         <ul marker-="tree open" class="content-padded">
           <li><a href="https://github.com/invoke-ai/InvokeAI/pulls?q=is%3Apr+author%3Arohinish404" target="_blank">InvokeAI</a></li>
           <li><a href="https://github.com/ivy-llc/ivy/pulls?q=is%3Apr+author%3Arohinish404" target="_blank">Ivy</a></li>
@@ -251,5 +252,25 @@ const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve"
 
   button {
     gap: 0.75ch;
+  }
+
+  /* High contrast badges that work across all themes */
+  [is="badge"] {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border: 1px solid #444444 !important;
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 500;
+  }
+
+  /* Light theme specific overrides */
+  @media (prefers-color-scheme: light) {
+    [is="badge"] {
+      background-color: #f0f0f0 !important;
+      color: #333333 !important;
+      border: 1px solid #cccccc !important;
+    }
   }
 </style>
