@@ -1,0 +1,199 @@
+---
+// The list of themes remains the same
+const themes = [
+  // Base Themes
+  { value: 'dark', label: 'Dark' },
+  { value: 'light', label: 'Light' },
+  // Catppuccin
+  { value: 'catppuccin-mocha', label: 'Catppuccin Mocha' },
+  { value: 'catppuccin-macchiato', label: 'Catppuccin Macchiato' },
+  { value: 'catppuccin-frappe', label: 'Catppuccin Frappe' },
+  { value: 'catppuccin-latte', label: 'Catppuccin Latte' },
+  // Gruvbox
+  { value: 'gruvbox-dark-hard', label: 'Gruvbox Dark Hard' },
+  { value: 'gruvbox-dark-medium', label: 'Gruvbox Dark Medium' },
+  { value: 'gruvbox-dark-soft', label: 'Gruvbox Dark Soft' },
+  { value: 'gruvbox-light-hard', label: 'Gruvbox Light Hard' },
+  // Everforest
+  { value: 'everforest-dark-hard', label: 'Everforest Dark Hard' },
+  { value: 'everforest-dark-medium', label: 'Everforest Dark' },
+  { value: 'everforest-light-medium', label: 'Everforest Light' },
+  // Nord
+  { value: 'nord', label: 'Nord' },
+  // Vitesse
+  { value: 'vitesse-dark', label: 'Vitesse Dark' },
+  { value: 'vitesse-light', label: 'Vitesse Light' },
+  { value: 'vitesse-black', label: 'Vitesse Black' },
+];
+---
+
+<div class="theme-toggle-wrapper">
+  <details is-="popover" position-="bottom baseline-right">
+    <summary is-="button" size-="small" id="theme-summary-button">
+      [ THEME ]
+    </summary>
+
+    <div box-="square" id="theme-options">
+      {themes.map(theme => (
+        <button
+          size-="small"
+          variant-="background1"
+          data-theme-value={theme.value}
+          data-theme-label={theme.label}
+          class="theme-option-button"
+        >
+          {theme.label}
+        </button>
+      ))}
+    </div>
+  </details>
+</div>
+
+<style>
+  .theme-toggle-wrapper {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+  }
+
+  /* The button that opens the menu */
+  #theme-summary-button {
+    min-width: 28ch;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid var(--surface1);
+    background-color: var(--background0);
+    color: var(--foreground0);
+  }
+
+  #theme-summary-button:hover {
+    background-color: var(--background1);
+    border-color: var(--surface2);
+  }
+
+  /* The container for the list of theme buttons */
+  #theme-options {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background0);
+    border: 2px solid var(--surface1);
+    border-radius: 8px;
+    width: max-content;
+    min-width: 28ch;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 0.5rem;
+    gap: 0.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Individual theme buttons inside the menu */
+  .theme-option-button {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+    padding: 0.5rem 0.75rem !important;
+    border-radius: 4px !important;
+    background-color: transparent !important;
+    color: var(--foreground0) !important;
+    border: 1px solid transparent !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.2s ease;
+  }
+
+  .theme-option-button:hover {
+    background-color: var(--background1) !important;
+    border-color: var(--surface1) !important;
+    color: var(--foreground0) !important;
+  }
+
+  /* Style for the currently active theme button */
+  .theme-option-button[data-active="true"] {
+    background-color: var(--surface0) !important;
+    color: var(--accent-primary) !important;
+    border-color: var(--accent-primary) !important;
+    font-weight: bold !important;
+  }
+
+  .theme-option-button[data-active="true"]:hover {
+    background-color: var(--surface1) !important;
+    border-color: var(--accent-primary) !important;
+  }
+
+  /* Scrollbar styling for the theme options */
+  #theme-options::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #theme-options::-webkit-scrollbar-track {
+    background: var(--background1);
+    border-radius: 3px;
+  }
+
+  #theme-options::-webkit-scrollbar-thumb {
+    background: var(--surface2);
+    border-radius: 3px;
+  }
+
+  #theme-options::-webkit-scrollbar-thumb:hover {
+    background: var(--surface3);
+  }
+</style>
+
+<script>
+  // Elements
+  const detailsEl = document.querySelector('.theme-toggle-wrapper details') as HTMLDetailsElement;
+  const summaryButton = document.getElementById('theme-summary-button') as HTMLElement;
+  const themeButtons = document.querySelectorAll('.theme-option-button') as NodeListOf<HTMLButtonElement>;
+  const htmlEl = document.documentElement;
+
+  // Find a theme's label from its value
+  function getLabelFromValue(value: string) {
+    const button = Array.from(themeButtons).find(btn => btn.dataset.themeValue === value);
+    return button?.dataset.themeLabel || value;
+  }
+
+  // --- Main Functions ---
+  function applyTheme(themeValue: string) {
+    htmlEl.setAttribute('data-webtui-theme', themeValue);
+  }
+
+  function updateSummaryButton(themeValue: string) {
+    const label = getLabelFromValue(themeValue);
+    summaryButton.textContent = `[ ${label.toUpperCase()} ]`;
+  }
+
+  function updateActiveButton(themeValue: string) {
+    themeButtons.forEach(btn => {
+      const isActive = btn.dataset.themeValue === themeValue;
+      btn.setAttribute('data-active', String(isActive));
+    });
+  }
+
+  // --- Event Handling ---
+  themeButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const selectedTheme = button.dataset.themeValue;
+      if (!selectedTheme) return;
+
+      // Update everything
+      applyTheme(selectedTheme);
+      updateSummaryButton(selectedTheme);
+      updateActiveButton(selectedTheme);
+      localStorage.setItem('webtui-theme', selectedTheme);
+
+      // Close the popover after selection
+      detailsEl.removeAttribute('open');
+    });
+  });
+
+  // --- Initial Load ---
+  // We get the theme from the inline script in Layout.astro,
+  // so we just need to update the UI to match.
+  const initialTheme = htmlEl.getAttribute('data-webtui-theme') || 'catppuccin-mocha';
+  updateSummaryButton(initialTheme);
+  updateActiveButton(initialTheme);
+</script>

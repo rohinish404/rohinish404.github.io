@@ -1,0 +1,26 @@
+---
+// src/layouts/Layout.astro
+import '../styles/global.css';
+import '@fontsource/jetbrains-mono';
+import ThemeToggle from '../components/ThemeToggle.astro';
+---
+<!doctype html>
+<html lang="en"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Rohinish Singh's Portfolio" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Rohinish Singh | Portfolio</title>
+
+    <script is:inline>
+      const theme = localStorage.getItem('webtui-theme') || 'catppuccin-mocha';
+      document.documentElement.setAttribute('data-webtui-theme', theme);
+    </script>
+  </head>
+  <body>
+    <ThemeToggle />
+    <slot />
+  </body>
+</html>

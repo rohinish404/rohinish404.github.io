@@ -1,0 +1,263 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+
+// Helper array for project tech badges to cycle through colors
+const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve", "pink", "flamingo", "teal", "sapphire", "lavender"];
+---
+<Layout>
+  <main class="portfolio-container">
+    <!-- INTRODUCTION -->
+    <div box-="square" class="intro-box">
+      <h1>Rohinish Singh</h1>
+      <p>Build Stuff</p>
+      <div is-="separator" style="--separator-color: var(--surface2)"></div>
+      <div class="links-row">
+        <a href="https://www.linkedin.com/in/rohinish-singh-a0a52522b/" target="_blank" rel="noopener noreferrer">
+          <button> LinkedIn</button>
+        </a>
+        <a href="https://github.com/rohinish404" target="_blank" rel="noopener noreferrer">
+          <button> Github</button>
+        </a>
+        <a href="https://drive.google.com/file/d/1rJfpSCSPn60jcG2d7MOe6TrbDcJSo_K1/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <button variant-="background2"> CV</button>
+        </a>
+      </div>
+    </div>
+
+    <!-- CURRENTLY WORKING ON -->
+    <div box-="round" shear-="top">
+      <h2 is-="badge" variant-="green"> Currently working on...</h2>
+      <div class="content-padded">
+        <h3>Gdocs AI - AI docs editor
+          <a href=" target="_blank" rel="noopener noreferrer">[Link]</a>
+        </h3>
+        <p>Gdocs AI is a docs editor with AI features enabled like cursor AI.</p>
+      </div>
+    </div>
+
+    <!-- WORK EXPERIENCE -->
+    <div box-="round" shear-="top">
+      <h2 is-="badge" variant-="blue"> Work Experience</h2>
+      <ul marker-="tree open" class="content-padded work-list">
+	  	<li>
+          <h3>[Redacted]</h3>
+          <p><strong>Contract/ Freelance Developer</strong> | Remote | May 2025 - Present</p>
+          <ul marker-="bullet">
+            <li>Building AI applications and POCs using Full stack NextJS, AI SDK vercel, Mastra AI, CopilotKit and other related typescript AI libraries.</li>
+          </ul>
+        </li>
+        <li>
+          <h3>InspeqAI <a href="https://www.linkedin.com/company/inspeq-ai" target="_blank" rel="noopener noreferrer">[Link]</a></h3>
+          <p><strong>SDE Intern</strong> | Remote | Dec 2023 - Jun 2024</p>
+          <ul marker-="bullet">
+            <li>Collaborated with senior researchers and developers to build LLM evaluation metrics such as coherence, factual consistency, and answer relevancy.</li>
+            <li>Integrated researched metrics into FastAPI backend services using libraries like Hugging Face and PyTorch.</li>
+            <li>Researched RAG pipelines, RAG evaluation metrics, and built several small backend services.</li>
+          </ul>
+        </li>
+        <li>
+          <h3>GeeksForGeeks <a href="https://www.geeksforgeeks.org" target="_blank" rel="noopener noreferrer">[Link]</a></h3>
+          <p><strong>Technical Content Writer Intern</strong> | Remote | Sep 2023 - Feb 2024</p>
+          <ul marker-="bullet">
+            <li>Researched and wrote articles on machine learning and deep learning topics, including implementations.</li>
+            <li>Achieved over 20k combined views worldwide. <a href="https://www.geeksforgeeks.org/user/singhrohinish09/contributions/" target="_blank" rel="noopener noreferrer">[All Articles]</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PROJECTS -->
+    <div box-="round" shear-="top">
+        <h2 is-="badge" variant-="peach"> Projects</h2>
+        <div class="projects-grid">
+			<div box-="square">
+				<div class="content-padded">
+					<h3>GhViz - Visualize Your GitHub Repository
+					<a href="https://ghviz.pages.dev/" target="_blank" rel="noopener noreferrer">[Link]</a>
+					</h3>
+					<p>GhViz helps you explore GitHub repositories in an interactive way. Get insights into code structure, dependencies, and project organization with this intuitive visualization tool.</p>
+					<div class="tech-badges">
+						<span is-="badge" variant-="red">NextJS</span>
+						<span is-="badge" variant-="green">Drizzle ORM</span>
+						<span is-="badge" variant-="sky">Cloudflare Workers</span>
+						<span is-="badge" variant-="yellow">NeonDB</span>
+						<span is-="badge" variant-="blue">Github API</span>
+						<span is-="badge" variant-="mauve">Hono</span>
+						<span is-="badge" variant-="peach">SQLAlchemy</span>
+                	</div>
+				</div>
+			</div>
+            <div box-="square">
+                <h3>LetzWatch - Movie Streaming <a href="https://github.com/rohinish404/Letzwatch" target="_blank">[Link]</a></h3>
+                <p>A concept website that lets people watch movies together on a video call.</p>
+                <div class="tech-badges">
+                    <span is-="badge" variant-="red">React</span>
+                    <span is-="badge" variant-="green">FastAPI</span>
+                    <span is-="badge" variant-="sky">WebRTC</span>
+                    <span is-="badge" variant-="yellow">Socket.io</span>
+                </div>
+            </div>
+            <div box-="square">
+                <h3>Website Uptime Monitor <a href="https://github.com/rohinish404/monitor_uptime" target="_blank">[Link]</a></h3>
+                <p>Monitors website availability and sends Discord notifications on status changes.</p>
+                <div class="tech-badges">
+                    <span is-="badge" variant-="green">FastAPI</span>
+                    <span is-="badge" variant-="blue">Asyncio</span>
+                    <span is-="badge" variant-="mauve">Discord</span>
+                    <span is-="badge" variant-="peach">SQLAlchemy</span>
+                </div>
+            </div>
+            <div box-="square">
+                <h3>Image Captioning Model <a href="https://github.com/rohinish404/image_captioning" target="_blank">[Link]</a></h3>
+                <p>Implementation of the "Show, Attend and Tell" paper in PyTorch.</p>
+                <div class="tech-badges">
+                    <span is-="badge" variant-="red">PyTorch</span>
+                </div>
+            </div>
+            <div box-="square">
+                <h3>Recurate <a href="https://github.com/rohinish404/Recurate" target="_blank">[Link]</a></h3>
+                <p>Categorize and perform semantic search on your Twitter bookmarks.</p>
+                <div class="tech-badges">
+                    <span is-="badge" variant-="red">HTML</span>
+                    <span is-="badge" variant-="yellow">JavaScript</span>
+                    <span is-="badge" variant-="green">FastAPI</span>
+                    <span is-="badge" variant-="sky">LanceDB</span>
+                </div>
+            </div>
+             <div box-="square">
+                <h3>Cursor Controller <a href="https://github.com/rohinish404/cursor_controller" target="_blank">[Link]</a></h3>
+                <p>Control the mouse cursor using hand gestures via a webcam.</p>
+                <div class="tech-badges">
+                    <span is-="badge" variant-="blue">Python</span>
+                    <span is-="badge" variant-="green">OpenCV</span>
+                    <span is-="badge" variant-="red">Mediapipe</span>
+                </div>
+            </div>
+            <div box-="square">
+                <h3>Thumb Detection <a href="https://github.com/rohinish404/thumbs_detection" target="_blank">[Link]</a></h3>
+                <p>Finetuned YOLOv5 on a custom dataset to detect thumbs-up/down gestures.</p>
+                 <div class="tech-badges">
+                    <span is-="badge" variant-="red">PyTorch</span>
+                    <span is-="badge" variant-="yellow">YOLOv5</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MISC/HACKATHONS/OSS -->
+    <div class="side-projects-grid">
+      <div box-="round" shear-="top">
+        <h3 is-="badge" variant-="sky"> Misc Projects</h3>
+        <ul marker-="tree open" class="content-padded">
+          <li><a href="https://github.com/rohinish404/rscope" target="_blank"><strong>Rscope:</strong> Fast file previewer for iTerm2.</a></li>
+          <li><a href="https://github.com/rohinish404/rdump" target="_blank"><strong>Rdump:</strong> Chrome extension to save/load tabs.</a></li>
+        </ul>
+      </div>
+      <div box-="round" shear-="top">
+        <h3 is-="badge" variant-="teal"> Hackathons</h3>
+        <ul marker-="tree open" class="content-padded">
+          <li><a href="https://explanable.com" target="_blank"><strong>Explanable AI:</strong> Explain complex topics simply.</a></li>
+          <li><a href="https://github.com/rohinish404/Talking_recipe" target="_blank"><strong>Talking Recipe Book:</strong> AI-powered audio recipes.</a></li>
+        </ul>
+      </div>
+      <div box-="round" shear-="top">
+        <h3 is-="badge" variant-="maroon"> OSS Contributions</h3>
+        <ul marker-="tree open" class="content-padded">
+          <li><a href="https://github.com/invoke-ai/InvokeAI/pulls?q=is%3Apr+author%3Arohinish404" target="_blank">InvokeAI</a></li>
+          <li><a href="https://github.com/ivy-llc/ivy/pulls?q=is%3Apr+author%3Arohinish404" target="_blank">Ivy</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .portfolio-container {
+    padding: 2lh 2ch;
+    display: flex;
+    flex-direction: column;
+    gap: 2lh;
+    max-width: 80ch;
+    margin: 4lh auto 4lh auto; /* Add margin top to not overlap with theme toggler */
+  }
+
+  h1, h2, h3 {
+    margin-bottom: 0.5lh;
+  }
+  
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1.1rem; }
+
+  .intro-box {
+    text-align: center;
+  }
+  
+  .links-row {
+    display: flex;
+    justify-content: center;
+    gap: 1ch;
+    flex-wrap: wrap;
+    margin-top: 1lh;
+  }
+
+  .content-padded {
+    padding: 1lh 1ch;
+  }
+
+  ul.work-list > li:not(:last-child) {
+    padding-bottom: 1lh;
+    margin-bottom: 1lh;
+    border-bottom: 1px solid var(--background3);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
+    gap: 1.5ch 1.5ch;
+    padding: 1lh 1ch;
+  }
+  
+  .projects-grid > [box-="square"] {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5lh;
+  }
+
+  .tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5ch;
+    margin-top: auto; /* Pushes badges to the bottom */
+    padding-top: 1lh;
+  }
+  
+  .side-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+    gap: 1.5ch;
+  }
+
+  .side-projects-grid ul {
+    font-size: 0.9rem;
+  }
+
+  a {
+    color: var(--sky, var(--blue));
+    text-decoration: underline;
+  }
+  a:hover {
+    color: var(--sapphire, var(--aqua));
+  }
+  
+  h3 > a {
+    font-size: 0.8rem;
+    vertical-align: middle;
+    margin-left: 0.5ch;
+  }
+
+  button {
+    gap: 0.75ch;
+  }
+</style>
