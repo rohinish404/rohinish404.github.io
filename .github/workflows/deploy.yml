@@ -31,8 +31,6 @@ jobs:
       # MODIFIED SECTION: Replaced withastro/action with explicit setup steps
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10 # Use the pnpm version from your package.json
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
