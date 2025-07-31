@@ -1,5 +1,5 @@
 ---
-// The list of themes remains the same
+// The list of themes
 const themes = [
   // Base Themes
   { value: 'dark', label: 'Dark' },
@@ -33,7 +33,7 @@ const themes = [
       [ THEME ]
     </summary>
 
-    <div box-="square" id="theme-options">
+    <div id="theme-options">
       {themes.map(theme => (
         <button
           size-="small"
@@ -62,15 +62,18 @@ const themes = [
     min-width: 28ch;
     justify-content: center;
     font-weight: bold;
-    border: 2px solid var(--surface1);
     background-color: var(--background0);
     color: var(--foreground0);
+
+    /* --- UPDATED STYLES START --- */
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    cursor: pointer;
+    /* --- UPDATED STYLES END --- */
   }
 
-  #theme-summary-button:hover {
-    background-color: var(--background1);
-    border-color: var(--surface2);
-  }
+
 
   /* The container for the list of theme buttons */
   #theme-options {
@@ -113,14 +116,14 @@ const themes = [
   /* Style for the currently active theme button */
   .theme-option-button[data-active="true"] {
     background-color: var(--surface0) !important;
-    color: var(--accent-primary) !important;
-    border-color: var(--accent-primary) !important;
+    color: var(--accent-primary, var(--mauve)) !important; /* Added fallback color */
+    border-color: var(--accent-primary, var(--mauve)) !important; /* Added fallback color */
     font-weight: bold !important;
   }
 
   .theme-option-button[data-active="true"]:hover {
     background-color: var(--surface1) !important;
-    border-color: var(--accent-primary) !important;
+    border-color: var(--accent-primary, var(--mauve)) !important; /* Added fallback color */
   }
 
   /* Scrollbar styling for the theme options */

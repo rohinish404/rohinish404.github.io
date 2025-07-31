@@ -1,31 +1,26 @@
----
-// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 
-// Helper array for project tech badges to cycle through colors
 const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve", "pink", "flamingo", "teal", "sapphire", "lavender"];
----
+
 <Layout>
   <main class="portfolio-container">
-    <!-- INTRODUCTION -->
     <div box-="square" class="intro-box">
       <h1>Rohinish Singh</h1>
-      <p>Build Stuff</p>
+      <p>Building Stuff</p>
       <div is-="separator" style="--separator-color: var(--surface2)"></div>
       <div class="links-row">
         <a href="https://www.linkedin.com/in/rohinish-singh-a0a52522b/" target="_blank" rel="noopener noreferrer">
-          <button> LinkedIn</button>
+          <button>LinkedIn</button>
         </a>
         <a href="https://github.com/rohinish404" target="_blank" rel="noopener noreferrer">
-          <button> Github</button>
+          <button>Github</button>
         </a>
         <a href="https://drive.google.com/file/d/1rJfpSCSPn60jcG2d7MOe6TrbDcJSo_K1/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-          <button variant-="background2"> CV</button>
+          <button variant-="background2">CV</button>
         </a>
       </div>
     </div>
 
-    <!-- CURRENTLY WORKING ON -->
     <div box-="round" shear-="top">
       <h2 is-="badge" variant-="green"> Currently working on...</h2>
       <div class="content-padded">
@@ -36,7 +31,6 @@ const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve"
       </div>
     </div>
 
-    <!-- WORK EXPERIENCE -->
     <div box-="round" shear-="top">
       <h2 is-="badge" variant-="blue"> Work Experience</h2>
       <ul marker-="tree open" class="content-padded work-list">
@@ -67,9 +61,8 @@ const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve"
       </ul>
     </div>
 
-    <!-- PROJECTS -->
     <div box-="round" shear-="top">
-        <h2 is-="badge" variant-="peach"> Projects</h2>
+        <h2 is-="badge" variant-="peach">Projects</h2>
         <div class="projects-grid">
 			<div box-="square">
 				<div class="content-padded">
@@ -145,7 +138,6 @@ const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve"
         </div>
     </div>
     
-    <!-- MISC/HACKATHONS/OSS -->
     <div class="side-projects-grid">
       <div box-="round" shear-="top">
         <h3 is-="badge" variant-="sky"> Misc Projects</h3>
@@ -179,7 +171,7 @@ const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve"
     flex-direction: column;
     gap: 2lh;
     max-width: 80ch;
-    margin: 4lh auto 4lh auto; /* Add margin top to not overlap with theme toggler */
+    margin: 4lh auto 4lh auto;
   }
 
   h1, h2, h3 {
@@ -229,7 +221,7 @@ const badgeVariants = ["red", "peach", "yellow", "green", "sky", "blue", "mauve"
     display: flex;
     flex-wrap: wrap;
     gap: 0.5ch;
-    margin-top: auto; /* Pushes badges to the bottom */
+    margin-top: auto;
     padding-top: 1lh;
   }
   
