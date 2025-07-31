@@ -28,7 +28,7 @@ const themes = [
 ---
 
 <div class="theme-toggle-wrapper">
-  <details is-="popover" position-="bottom baseline-right">
+  <details is-="popover" position-="top baseline-left" class="theme-details">
     <summary is-="button" size-="small" id="theme-summary-button">
       [ THEME ]
     </summary>
@@ -57,6 +57,48 @@ const themes = [
     z-index: 100;
   }
 
+  /* Mobile-first responsive adjustments */
+  @media (max-width: 768px) {
+    .theme-toggle-wrapper {
+      position: fixed;
+      top: auto;
+      bottom: 1rem;
+      right: 1rem;
+      left: auto;
+    }
+    
+    /* Make button smaller on mobile */
+    #theme-summary-button {
+      min-width: 20ch !important;
+      font-size: 0.8rem !important;
+      padding: 0.4rem 0.8rem !important;
+    }
+  }
+
+  /* Extra small screens */
+  @media (max-width: 480px) {
+    .theme-toggle-wrapper {
+      bottom: 0.5rem;
+      right: 0.5rem;
+    }
+    
+    #theme-summary-button {
+      min-width: 16ch !important;
+      font-size: 0.75rem !important;
+      padding: 0.3rem 0.6rem !important;
+    }
+  }
+
+  /* Tablet and larger - keep original positioning */
+  @media (min-width: 769px) {
+    .theme-toggle-wrapper {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      bottom: auto;
+    }
+  }
+
   /* The button that opens the menu */
   #theme-summary-button {
     min-width: 28ch;
@@ -64,16 +106,12 @@ const themes = [
     font-weight: bold;
     background-color: var(--background0);
     color: var(--foreground0);
-
-    /* --- UPDATED STYLES START --- */
     border: none;
     padding-left: 0;
     padding-right: 0;
     cursor: pointer;
-    /* --- UPDATED STYLES END --- */
+    transition: all 0.2s ease;
   }
-
-
 
   /* The container for the list of theme buttons */
   #theme-options {
@@ -89,6 +127,32 @@ const themes = [
     padding: 0.5rem;
     gap: 0.25rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Mobile-specific adjustments */
+  @media (max-width: 768px) {
+    /* Change popover position on mobile */
+    .theme-details {
+      position: relative;
+    }
+    
+    .theme-details[is="popover"] {
+      --popover-position: top baseline-left;
+    }
+    
+    #theme-options {
+      min-width: 20ch;
+      max-height: 50vh;
+      right: 0;
+    left: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #theme-options {
+      min-width: 18ch;
+      max-height: 40vh;
+    }
   }
   
   /* Individual theme buttons inside the menu */
@@ -116,14 +180,14 @@ const themes = [
   /* Style for the currently active theme button */
   .theme-option-button[data-active="true"] {
     background-color: var(--surface0) !important;
-    color: var(--accent-primary, var(--mauve)) !important; /* Added fallback color */
-    border-color: var(--accent-primary, var(--mauve)) !important; /* Added fallback color */
+    color: var(--accent-primary, var(--mauve)) !important;
+    border-color: var(--accent-primary, var(--mauve)) !important;
     font-weight: bold !important;
   }
 
   .theme-option-button[data-active="true"]:hover {
     background-color: var(--surface1) !important;
-    border-color: var(--accent-primary, var(--mauve)) !important; /* Added fallback color */
+    border-color: var(--accent-primary, var(--mauve)) !important;
   }
 
   /* Scrollbar styling for the theme options */
